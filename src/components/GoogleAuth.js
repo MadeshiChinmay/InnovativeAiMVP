@@ -40,9 +40,12 @@ class GoogleAuth extends React.Component{
                 console.log(res)
                 if(res.data==="Not Found")
                 {
+                    browserHistory.push('https://innovative-ai.herokuapp.com/')
+                    window.location.href('https://innovative-ai.herokuapp.com/')
                     this.auth.signOut()
+                    this.forceUpdate()
                     NotificationManager.error("YOU ARE NOT REGISTERED")
-                    //browserHistory.push('https://innovative-ai.herokuapp.com/')
+                    
                 }
             })
         }
@@ -55,7 +58,7 @@ class GoogleAuth extends React.Component{
 
     onSignInClick=()=>{
         this.auth.signIn()
-        NotificationManager.success('SUCCESSFULLY SIGNED IN',"",1500);
+        //NotificationManager.success('SUCCESSFULLY SIGNED IN',"",1500);
         /*axios.post('/isUser',{
             "email":this.auth.currentUser.get().getBasicProfile().getEmail()
         }).then((res)=>{
@@ -71,6 +74,8 @@ class GoogleAuth extends React.Component{
     onSignOutClick=()=>{
         
         this.auth.signOut()
+        this.forceUpdate()
+        browserHistory.push('https://innovative-ai.herokuapp.com/')
         NotificationManager.info('SUCCESSFULLY SIGNED OUT',"",1200);
         
     }
