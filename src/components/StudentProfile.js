@@ -75,12 +75,12 @@ class StudentProfile extends React.Component {
     else
     {
         return(
-            <div className = "div1">
-                <h1>ERROR</h1>
-                <button className='w-40 grow f4 link ph3 pv2 dib bg-white'>
-                    <Link to="/">It seems you are'nt logged in. Press the button to go to homepage.</Link>
-                </button>
-            </div>
+            <div className = "ui container" align="center" style={{color:"white"}}>
+                        <h1>ERROR</h1>
+                        <button className="negative ui button">
+                            <Link to="/">PLEASE LOGIN AND THEN COME HERE</Link>
+                        </button>
+                </div>
         )
     }
     }

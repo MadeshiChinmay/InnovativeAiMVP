@@ -40,24 +40,34 @@ class GoogleAuth extends React.Component{
                 console.log(res)
                 if(res.data==="Not Found")
                 {
+                    NotificationManager.error("YOU ARE NOT REGISTERED")
                     browserHistory.push('https://innovative-ai.herokuapp.com/')
                     window.location.href('https://innovative-ai.herokuapp.com/')
                     this.auth.signOut()
                     this.forceUpdate()
-                    NotificationManager.error("YOU ARE NOT REGISTERED")
+                    
                     
                 }
             })
         }
         else
         {
+            this.auth.signOut();
             this.props.signOut();
         }
     }  
     
 
     onSignInClick=()=>{
-        this.auth.signIn()
+        this.auth.signIn().then(()=>{
+            if (this.auth.isSignedIn)
+            {
+                NotificationManager.info('SUCCESSFULLY SIGNED IN',"",1200)
+            }
+            
+        }
+        )
+        //NotificationManager.info('SUCCESSFULLY SIGNED OUT',"",1200);
         //NotificationManager.success('SUCCESSFULLY SIGNED IN',"",1500);
         /*axios.post('/isUser',{
             "email":this.auth.currentUser.get().getBasicProfile().getEmail()

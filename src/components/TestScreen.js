@@ -370,11 +370,11 @@ class TestScreen extends React.Component{
         else
         {
             return(
-                <div className = "div1">
+                <div className = "ui container" align="center" style={{color:"white"}}>
                         <h1>ERROR</h1>
-                        <button className="btn btn-info">
+                        <button className="negative ui button">
                             <Link to="/">PLEASE LOGIN AND THEN COME HERE</Link>
-                            </button>
+                        </button>
                 </div>
             )
         }
